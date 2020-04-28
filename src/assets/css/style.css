@@ -1,0 +1,72 @@
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    padding: 3rem 0;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.card {
+    text-align: left;
+    /* min-height: 650px; */
+}
+
+.card-header {
+    min-height: 73px;
+}
+
+.card-subtitle {
+    min-height: 28px;
+}
+
+.card-text {
+    overflow: hidden;
+    height: 84px;
+}
+
+.card-image {
+    height: 350px;
+    display: block;
+}
+
+.card .card-body:nth-of-type(2) {
+    min-height: 229px;
+}
+
+.card .list-group-item {
+    background: unset;
+    min-height: 67px;
+}
+
+.card .list-group-item:nth-of-type(2) {
+    min-height: 87px;
+}
+
+.text {
+    font-size: 24px;
+    text-align: left;
+    font-weight: 500;
+}
+
+#footer {
+    margin-top: auto;
+}
+
+p {
+    margin-bottom: 0;
+}
