@@ -44,6 +44,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((routeTo, routeFrom, next) => {
+    window.scrollTo(0, 0)
     NProgress.start()
     next()
 })

@@ -5,7 +5,7 @@
       <router-view :key="$route.fullPath" />
     </div>
     <the-footer></the-footer>
-    <the-modal></the-modal>
+    <the-modal v-if="isMovieSelected"></the-modal>
   </div>
 </template>
 
@@ -13,8 +13,15 @@
 import TheNavbar from "@/components/TheNavbar.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import TheModal from "@/components/TheModal.vue";
+import { mapGetters } from "vuex";
+
 export default {
-  components: { TheNavbar, TheFooter, TheModal }
+  components: { TheNavbar, TheFooter, TheModal },
+  computed: {
+    ...mapGetters({
+      isMovieSelected: "getSelectedMovie"
+    })
+  }
 };
 </script>
 

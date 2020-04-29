@@ -12,6 +12,7 @@ soup = BeautifulSoup(page, 'html.parser')
 
 movie_list = soup.find('div', {'class': 'lister-list'})
 movies = movie_list.findAll('div', {'class': 'lister-item'})
+i = 1
 
 for movie in movies:
     title = movie.find('div', {'class': 'lister-item-content'}).find('a').text
@@ -41,25 +42,28 @@ for movie in movies:
 
     img = movie.find('img')['loadlate']
 
-    # r = requests.get(img, stream=True)
-    # r.raw.decode_content = True
+    r = requests.get(img, stream=True)
+    r.raw.decode_content = True
 
-    # with open('imgs/'+title+img[-4:], 'wb') as image_file:
-    #     shutil.copyfileobj(r.raw, image_file)
-    #     image_file.close()
+    with open('public/imgs/'+title+img[-4:], 'wb') as image_file:
+        shutil.copyfileobj(r.raw, image_file)
+        image_file.close()
 
     movie_dict = {
+        "id": i,
         "title": title,
         "desc": desc,
         "director": director,
         "stars": actors,
         "genres": genres,
         "length": length,
-        "image": title+".png",
+        "image": title+".jpg",
         "year": year[1:-1]
     }
 
-    all_movies.append(movie_dict)
+    i += 1
+
+    # all_movies.append(movie_dict)
 
     # print(movie_dict)
     # print(title)

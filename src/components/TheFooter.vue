@@ -5,12 +5,16 @@
         <p>&copy; Copyright 2020, Emiljan Dusha. All rights reserved.</p>
       </div>
     </div>
+    <div class="scroll-top-btn btn btn-primary" @click="goToTop()">Go to Top</div>
   </footer>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    goToTop() {
+      window.scroll(0, 0);
+    }
+  }
+};
 </script>
-
-<style lang="scss" scoped>
-</style>

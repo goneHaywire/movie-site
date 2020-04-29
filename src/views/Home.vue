@@ -4,34 +4,23 @@
     <hr />
     <div class="row">
       <template v-for="movie in movies">
-        <div class="col-md-3" :key="movie.title">
-          <div class="card text-white bg-primary mb-5" style="max-width: 20rem;">
-            <!-- <div class="card-header">Header</div> -->
+        <div class="col-md-3" :key="movie.id">
+          <div
+            class="card text-white bg-primary mb-5"
+            style="max-width: 20rem;"
+            @click="setMovie(movie.id)"
+          >
             <div class="card-body">
               <h4 class="card-title">{{ movie.title }}</h4>
               <p class="card-text">{{ movie.desc }}</p>
             </div>
             <img class="card-image" :src="'/imgs/'+movie.image" :alt="movie.title" />
           </div>
-
-          <!-- <div class="card mb-5 text-white bg-primary">
-            <h4 class="card-header">{{ movie.title }}</h4>
-            <div class="card-body">
-              <h5 class="card-title">{{ movie.year }} ({{ movie.length }})</h5>
-              <h6 class="card-subtitle text-muted">{{ movie.genres.join(', ') }}</h6>
-            </div>
-            <img class="card-image" :src="'/imgs/'+movie.image" :alt="movie.title" />
-            <div class="card-body">
-              <p class="card-text">{{ movie.desc }}</p>
-            </div>
-            <ul class="list-group list-group-flush text-white bg-dark">
-              <li class="list-group-item">Producer: {{ movie.director }}</li>
-              <li class="list-group-item">Stars: {{ movie.stars.join(', ') }}</li>
-            </ul>
-          </div>-->
         </div>
       </template>
     </div>
+
+    <router-link :to="{name: 'Movies'}" tag="a" class="btn btn-primary mb-5">Load all Movies</router-link>
 
     <h1 class="title">Genres</h1>
     <hr />
@@ -48,6 +37,8 @@
         <!-- <span class="badge badge-primary badge-pill">{{ genre.amount }}</span> -->
       </li>
     </ul>
+
+    <router-link :to="{name: 'Genres'}" tag="a" class="btn btn-primary mt-5 mb-4">Load all genres</router-link>
   </div>
 </template>
 
@@ -60,8 +51,8 @@ export default {
   computed: {
     ...mapGetters(["getSomeMovies", "getSomeGenres"])
   },
-  created() {
-    this.movies = this.getSomeMovies(12);
+  mounted() {
+    this.movies = this.getSomeMovies(8);
     this.genres = this.getSomeGenres(12);
   },
   data() {
@@ -70,8 +61,10 @@ export default {
       genres: undefined
     };
   },
-  components: {
-    HelloWorld
+  methods: {
+    setMovie(id) {
+      this.$store.dispatch("setSelectedMovie", id);
+    }
   }
 };
 </script>

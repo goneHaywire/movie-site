@@ -65,8 +65,25 @@ html {
 
 #footer {
     margin-top: auto;
+    position: relative;
+}
+
+.scroll-top-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 p {
     margin-bottom: 0;
+}
+
+.modal {
+    display: initial;
+    background: #282828cc;
+    text-align: left;
 }

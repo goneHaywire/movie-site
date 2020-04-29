@@ -4,14 +4,18 @@
     <hr />
     <div class="row">
       <template v-for="movie in filteredMovies">
-        <div class="col-md-3" :key="movie.title">
-          <div class="card text-white bg-primary mb-5" style="max-width: 20rem;">
+        <div class="col-md-3" :key="movie.id">
+          <div
+            class="card text-white bg-primary mb-5"
+            style="max-width: 20rem;"
+            @click="setMovie(movie.id)"
+          >
             <!-- <div class="card-header">Header</div> -->
             <div class="card-body">
               <h4 class="card-title">{{ movie.title }}</h4>
               <p class="card-text">{{ movie.desc }}</p>
             </div>
-            <img class="card-image" :src="'/imgs/'+movie.image" :alt="movie.title" />
+            <img class="card-image" :src="'/imgs/' + movie.image" :alt="movie.title" />
           </div>
 
           <!-- <div class="card mb-5 text-white bg-primary">
@@ -55,6 +59,11 @@ export default {
           return movie[this.queryType].toLowerCase().includes(this.query);
         else return movie[this.queryType].includes(this.query);
       });
+    }
+  },
+  methods: {
+    setMovie(id) {
+      this.$store.dispatch("setSelectedMovie", id);
     }
   },
   created() {
