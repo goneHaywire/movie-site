@@ -1981,7 +1981,7 @@ export default new Vuex.Store({
         getGenres: (state) => state.genres,
         getMovies: (state) => state.movies,
         getGenresWithAmount: (state) => state.genresWithAmount,
-        isGenreAmountsEmpty: (state) => state.genresWithAmount.length > 0,
+        isGenreAmountsFull: (state) => state.genresWithAmount.length > 0,
         getSomeMovies: state => amount => {
             let newArray = state.movies.slice()
             return newArray.splice(0, amount)
@@ -2017,10 +2017,9 @@ export default new Vuex.Store({
             })
         },
         setSelectedMovie({ commit }, id) {
-            console.log('test')
             commit('SET_SELECTED_MOVIE', { id })
         },
-        clearSelectedMovie({ stae }) {
+        clearSelectedMovie() {
             this.commit('CLEAR_SELECTED_MOVIE')
         }
     },

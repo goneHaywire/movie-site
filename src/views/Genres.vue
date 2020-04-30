@@ -26,12 +26,6 @@ export default {
     ...mapGetters({
       genres: "getGenresWithAmount"
     })
-  },
-  mounted() {
-    this.$nextTick(() => {
-      console.log("test");
-      window.scrollTo(0, 0);
-    });
   }
 };
 </script>

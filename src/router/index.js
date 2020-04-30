@@ -30,7 +30,7 @@ const routes = [{
             import ('../views/Genres.vue'),
         beforeEnter(routeTo, routeFrom, next) {
             NProgress.start()
-            if (!store.getters.isGenreAmountsEmpty)
+            if (!store.getters.isGenreAmountsFull)
                 store.dispatch('computeGenresWithAmount')
             next()
         }

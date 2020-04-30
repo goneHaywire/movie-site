@@ -10,29 +10,12 @@
             style="max-width: 20rem;"
             @click="setMovie(movie.id)"
           >
-            <!-- <div class="card-header">Header</div> -->
             <div class="card-body">
               <h4 class="card-title">{{ movie.title }}</h4>
               <p class="card-text">{{ movie.desc }}</p>
             </div>
             <img class="card-image" :src="'/imgs/' + movie.image" :alt="movie.title" />
           </div>
-
-          <!-- <div class="card mb-5 text-white bg-primary">
-            <h4 class="card-header">{{ movie.title }}</h4>
-            <div class="card-body">
-              <h5 class="card-title">{{ movie.year }} ({{ movie.length }})</h5>
-              <h6 class="card-subtitle text-muted">{{ movie.genres.join(', ') }}</h6>
-            </div>
-            <img class="card-image" :src="'/imgs/'+movie.image" :alt="movie.title" />
-            <div class="card-body">
-              <p class="card-text">{{ movie.desc }}</p>
-            </div>
-            <ul class="list-group list-group-flush text-white bg-dark">
-              <li class="list-group-item">Producer: {{ movie.director }}</li>
-              <li class="list-group-item">Stars: {{ movie.stars.join(', ') }}</li>
-            </ul>
-          </div>-->
         </div>
       </template>
     </div>

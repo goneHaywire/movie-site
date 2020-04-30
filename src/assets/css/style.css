@@ -23,7 +23,7 @@ html {
 
 .card {
     text-align: left;
-    /* min-height: 650px; */
+    cursor: pointer;
 }
 
 .card-header {
@@ -86,4 +86,12 @@ p {
     display: initial;
     background: #282828cc;
     text-align: left;
+}
+
+.genre-grid {
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    grid-template-rows: repeat(1fr, 3);
+    grid-gap: 12% 4%;
+    margin-bottom: 3rem;
 }
